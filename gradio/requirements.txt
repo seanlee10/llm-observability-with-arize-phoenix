@@ -1,0 +1,8 @@
+psycopg[binary]
+psycopg2-binary==2.9.9
+gradio==4.42.0
+langchain==0.2.14
+langchain-postgres==0.0.9
+langchain-aws==0.1.17
+langchain-core==0.2.34
+arize-phoenix==4.26.0
