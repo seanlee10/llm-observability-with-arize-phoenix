@@ -35,10 +35,6 @@ cdk deploy
 cdk destroy
 ```
 
-## Feedback
-
-Create an issue [here](https://github.com/awslabs/automated-security-helper/issues).
-
 ## License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
