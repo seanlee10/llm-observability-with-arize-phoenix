@@ -150,8 +150,8 @@ export class PhoenixDemoStack extends cdk.Stack {
 
     taskDefinition.addContainer('Phoenix', {
       containerName: 'phoenix',
-      image: ecs.ContainerImage.fromRegistry('arizephoenix/phoenix:version-4.26.0'),
-      portMappings: [{ containerPort: 6006 }],
+      image: ecs.ContainerImage.fromRegistry('arizephoenix/phoenix:version-5.2.2'),
+      portMappings: [{ containerPort: 6006 }, { containerPort: 4317 }],
       essential: true,
       environment: {
         PHOENIX_SQL_DATABASE_URL: `postgresql://postgres:${dbPassword}@${dbHost}:5432/postgres`
