@@ -10,11 +10,15 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain.docstore.document import Document
 from langchain_core.runnables import RunnableLambda
 from langchain_postgres import PGVector
-from phoenix.trace.langchain import LangChainInstrumentor
+from openinference.instrumentation.langchain import LangChainInstrumentor
+from phoenix.otel import register
 
 MODEL_ID = os.environ.get("MODEL_ID")
-os.environ["PHOENIX_COLLECTOR_ENDPOINT"] = "http://localhost:6006"
-LangChainInstrumentor().instrument()
+
+trace_provider = register(
+    endpoint="http://localhost:4317",
+)
+LangChainInstrumentor().instrument(trace_provider=trace_provider)
 
 session = boto3.session.Session()
 client = session.client(
